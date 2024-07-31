@@ -9,17 +9,18 @@ function Books() {
   const [search, setSearch] = useState("nietzsche");
   const [books, setBooks] = useState([]);
 
+  async function fetchBooks(query) {
+    const res = await fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=10`
+    );
+    const { items } = await res.json();
+    console.log(items);
+    setBooks(items || []);
+  }
+
   useEffect(() => {
     if (search !== "") {
-      async function fetchBooks() {
-        const res = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${search}&key=${apiKey}&maxResults=10`
-        );
-        const { items } = await res.json();
-        console.log(items);
-        setBooks(items || []);
-      }
-      fetchBooks();
+      fetchBooks(search);
     }
   }, [search]);
 
