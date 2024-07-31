@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Testimotional from "../../components/Testimotional";
 
-const apiKey = "AIzaSyA-YO9KUzMDelRepsQA7LQUKwxECrvoMzs";
+const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
 
 function Books() {
   const [search, setSearch] = useState("nietzsche");
@@ -40,34 +40,29 @@ function Books() {
       <div className="p-6 bg-white dark:bg-gray-950 dark:text-white">
         {/* card hissesi */}
         {books.length > 0 ? (
-          <div className="flex justify-center flex-wrap   ">
+          <div className="flex justify-center flex-wrap">
             {books.map((book) => {
               let thumbnail =
                 book.volumeInfo.imageLinks &&
                 book.volumeInfo.imageLinks.smallThumbnail;
               return (
-                <>
-                  <div className="p-6">
-                    <div
-                      key={book.id}
-                      className="relative text-center w-[300px] h-[400px] mb-2.5 p-6 rounded-2xl border-2"
-                    >
-                      <img
-                        className="h-[300px] rounded shadow-2xl"
-                        src={thumbnail}
-                        alt=""
-                      />
-                      <div className="flex flex-col">
-                        <h3 className="text-sm mb-3 dark:text-white">
-                          {book.volumeInfo.title}
-                        </h3>
-                        <p className=" dark:text-white">
-                          {book.volumeInfo.authors?.join(", ")}
-                        </p>
-                      </div>
+                <div key={book.id} className="p-6">
+                  <div className="relative text-center w-[300px] h-[400px] mb-2.5 p-6 rounded-2xl border-2">
+                    <img
+                      className="h-[300px] rounded shadow-2xl"
+                      src={thumbnail}
+                      alt=""
+                    />
+                    <div className="flex flex-col">
+                      <h3 className="text-sm mb-3 dark:text-white">
+                        {book.volumeInfo.title}
+                      </h3>
+                      <p className=" dark:text-white">
+                        {book.volumeInfo.authors?.join(", ")}
+                      </p>
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
@@ -75,7 +70,7 @@ function Books() {
           <p>No books found</p>
         )}
       </div>
-      <div className=" bg-white dark:bg-gray-900 dark:text-white">
+      <div className="bg-white dark:bg-gray-900 dark:text-white">
         <Testimotional />
         <div className="dark:bg-gray-950">
           <Footer />
