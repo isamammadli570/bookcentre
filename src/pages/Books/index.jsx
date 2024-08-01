@@ -5,6 +5,9 @@ import Testimotional from "../../components/Testimotional";
 import { Link } from "react-router-dom";
 
 function Books({ search, setSearch, books, setBooks }) {
+  /* function handleClick() {
+    
+  } */
   return (
     <div>
       <Navbar />
@@ -49,6 +52,9 @@ function Books({ search, setSearch, books, setBooks }) {
                 </div>
               );
             })}
+            {/* <div>
+              <button onClick={handleClick}>More</button>
+            </div> */}
           </div>
         ) : (
           <p>No books found</p>

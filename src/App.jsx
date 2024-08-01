@@ -13,7 +13,7 @@ function App() {
   const [search, setSearch] = useState("nietzsche");
   const [books, setBooks] = useState([]);
 
-  async function fetchBooks(query) {
+ async function fetchBooks(query) {
     const res = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
     );
@@ -26,7 +26,7 @@ function App() {
     if (search !== "") {
       fetchBooks(search);
     }
-  }, [search]);
+  }, [search]); 
 
   React.useEffect(() => {
     AOS.init({
