@@ -1,19 +1,10 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import BestBooks from "./components/BestBooks";
-import Banner from "./components/Banner";
-import AppStoreBanner from "./components/AppStoreBanner";
-import AllBooks from "./components/AllBooks";
-import Testimotional from "./components/Testimotional";
-import Footer from "./components/Footer";
-
 import AppLayout from "./AppLayout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Books from "./pages/Books";
 // aos import
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Books from "./pages/Books";
 
 function App() {
   React.useEffect(() => {

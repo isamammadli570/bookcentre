@@ -11,7 +11,7 @@ function Books() {
 
   async function fetchBooks(query) {
     const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=10`
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
     );
     const { items } = await res.json();
     console.log(items);

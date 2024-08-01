@@ -20,7 +20,7 @@ function AppLayout() {
       <Testimotional />
       <Footer />
     </div>
-  )
+  );
 }
 
-export default AppLayout
+export default AppLayout;
