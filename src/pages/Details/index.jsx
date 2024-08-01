@@ -27,8 +27,8 @@ function Details() {
   );
 
   return (
-    <div className="dark:bg-gray-950">
-      <div className="bg-white dark:bg-gray-950 dark:text-white">
+    <div className="dark:bg-gray-950 duration-200 ">
+      <div className="bg-white dark:bg-gray-950 dark:text-white duration-200 ">
         <Navbar />
         <div className="app w-full max-w-7xl md:m-[100px] border shadow-2xl ">
           {details?.map((detail) => {
@@ -92,10 +92,9 @@ function Details() {
               </div>
             );
           })}
-          {/* <p>{details.id}</p> */}
         </div>
       </div>
-      <div className="dark:text-white dark:bg-gray-900">
+      <div className="dark:text-white dark:bg-gray-900 duration-200 ">
         <Testimotional />
         <Footer />
       </div>

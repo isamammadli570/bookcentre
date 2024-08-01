@@ -27,6 +27,7 @@ const ImageList = [
       "Lost Boy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
+
 function Hero() {
   const [imageId, setImageId] = useState(Book1);
   const [title, setTitle] = useState("His Life will forever be Changed");

@@ -9,9 +9,9 @@ function Books({ search, setSearch, books, setBooks }) {
     
   } */
   return (
-    <div>
+    <div >
       <Navbar />
-      <div className="text-center pt-6 bg-white dark:bg-gray-950 dark:text-white">
+      <div className="text-center pt-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
         {/* input hissesi */}
         <h1 className="text-3xl font-bold py-2">Search a book..</h1>
         <input
@@ -22,7 +22,7 @@ function Books({ search, setSearch, books, setBooks }) {
           border-2 outline-none duration-200 shadow-xl dark:text-black  "
         />
       </div>
-      <div className="p-6 bg-white dark:bg-gray-950 dark:text-white">
+      <div className="p-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
         {/* card hissesi */}
         {books.length > 0 ? (
           <div className="flex justify-center flex-wrap">
@@ -39,11 +39,11 @@ function Books({ search, setSearch, books, setBooks }) {
                         src={thumbnail}
                         alt=""
                       />
-                      <div className="flex flex-col">
-                        <h3 className="text-sm mb-3 dark:text-white">
+                      <div className="flex flex-col mt-1">
+                        <h3 className="text-sm mb-1 duration-200 dark:text-white">
                           {book.volumeInfo.title}
                         </h3>
-                        <p className=" dark:text-white">
+                        <p className="duration-200 font-semibold dark:text-white">
                           {book.volumeInfo.authors?.join(", ")}
                         </p>
                       </div>
@@ -60,9 +60,9 @@ function Books({ search, setSearch, books, setBooks }) {
           <p>No books found</p>
         )}
       </div>
-      <div className="bg-white dark:bg-gray-900 dark:text-white">
+      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 ">
         <Testimotional />
-        <div className="dark:bg-gray-950">
+        <div className="dark:bg-gray-950 duration-200 ">
           <Footer />
         </div>
       </div>
