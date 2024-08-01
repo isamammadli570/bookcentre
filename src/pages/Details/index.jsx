@@ -28,9 +28,9 @@ function Details() {
 
   return (
     <div className="dark:bg-gray-950">
-      <div className="bg-white dark:bg-gray-950  dark:text-white">
+      <div className="bg-white dark:bg-gray-950 dark:text-white">
         <Navbar />
-        <div className="app w-full max-w-7xl m-[100px] border shadow-2xl ">
+        <div className="app w-full max-w-7xl md:m-[100px] border shadow-2xl ">
           {details?.map((detail) => {
             let thumbnail =
               detail.volumeInfo.imageLinks &&

@@ -50,7 +50,7 @@ function Navbar() {
             <div>
               <DarkMode />
             </div>
-            <ul className="items-center hidden gap-4 sm:flex">
+            <ul className="items-center hidden gap-2 sm:flex">
               {Menu.map((menu) => (
                 <li key={menu.id}>
                   <NavLink
