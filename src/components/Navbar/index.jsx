@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import Logo from "../../assets/website/logo.png";
 import { FaCaretDown } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
@@ -8,12 +10,12 @@ const Menu = [
   {
     id: 1,
     name: "Home",
-    link: "/#",
+    link: "/",
   },
   {
     id: 2,
     name: "Books",
-    link: "books",
+    link: "/books",
   },
 ];
 
@@ -38,7 +40,8 @@ function Navbar() {
       <div className="container py-3 sm:py-0">
         <div className="flex justify-between items-center">
           <div>
-            <a href="/#" className="font-bold text-2xl sm:text-3xl flex gap-2">
+            <a href="/" 
+             className="font-bold text-2xl sm:text-3xl flex gap-2">
               <img src={Logo} alt="" className="w-10" />
               Books
             </a>
@@ -50,8 +53,8 @@ function Navbar() {
             <ul className="items-center hidden gap-4 sm:flex">
               {Menu.map((menu) => (
                 <li key={menu.id}>
-                  <a
-                    href={menu.link}
+                  <NavLink
+                    to={menu.link}
                     className="inline-block 
                     py-4 
                     px-4
@@ -59,7 +62,7 @@ function Navbar() {
                     duration-200"
                   >
                     {menu.name}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
               {/* acılan hisse */}
