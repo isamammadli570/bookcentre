@@ -1,29 +1,10 @@
-import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Testimotional from "../../components/Testimotional";
 
-const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
+import { Link } from "react-router-dom";
 
-function Books() {
-  const [search, setSearch] = useState("nietzsche");
-  const [books, setBooks] = useState([]);
-
-  async function fetchBooks(query) {
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
-    );
-    const { items } = await res.json();
-    console.log(items);
-    setBooks(items || []);
-  }
-
-  useEffect(() => {
-    if (search !== "") {
-      fetchBooks(search);
-    }
-  }, [search]);
-
+function Books({ search, setSearch, books, setBooks }) {
   return (
     <div>
       <Navbar />
@@ -48,21 +29,23 @@ function Books() {
                 book.volumeInfo.imageLinks.smallThumbnail;
               return (
                 <div key={book.id} className="p-6">
-                  <div className="relative text-center w-[300px] h-[400px] mb-2.5 p-6 rounded-2xl border-2">
-                    <img
-                      className="h-[300px] rounded shadow-2xl"
-                      src={thumbnail}
-                      alt=""
-                    />
-                    <div className="flex flex-col">
-                      <h3 className="text-sm mb-3 dark:text-white">
-                        {book.volumeInfo.title}
-                      </h3>
-                      <p className=" dark:text-white">
-                        {book.volumeInfo.authors?.join(", ")}
-                      </p>
+                  <Link to={`/${book.id}?id=${book.id}`}>
+                    <div className="relative text-center w-[300px] h-[400px] mb-2.5 p-6 rounded-2xl border-2">
+                      <img
+                        className="h-[300px] rounded shadow-2xl"
+                        src={thumbnail}
+                        alt=""
+                      />
+                      <div className="flex flex-col">
+                        <h3 className="text-sm mb-3 dark:text-white">
+                          {book.volumeInfo.title}
+                        </h3>
+                        <p className=" dark:text-white">
+                          {book.volumeInfo.authors?.join(", ")}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               );
             })}
