@@ -1,45 +1,26 @@
 import React, { useEffect, useState } from "react";
-import Img1 from "../../assets/books/book2.jpg";
-import Img2 from "../../assets/books/book1.jpg";
-import Img3 from "../../assets/books/book3.jpg";
 import { FaStar } from "react-icons/fa";
 
-/* const Books = [
-  {
-    id: 1,
-    img: Img1,
-    title: "His Life",
-    description:
-      "Explore the compelling story of a life well-lived, full of experiences and achievements that inspire. Discover the moments and milestones that define this extraordinary journey.",
-  },
-  {
-    id: 2,
-    img: Img2,
-    title: "Who's there",
-    description:
-      "Meet the influential figures and notable personalities featured in our collection. Learn about their contributions and the impact they've made in their respective fields.",
-  },
-  {
-    id: 3,
-    img: Img3,
-    title: "Lost Boy",
-    description:
-      "Delve into the captivating narrative of the Lost Boy, a journey filled with adventure, self-discovery, and unexpected twists. Follow the path of a character who navigates through challenges to uncover profound truths.",
-  },
-]; */
-const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
+const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
 
 function BestBooks({ handleOrderPopup }) {
   const [search, setSearch] = useState("nietzsche");
   const [books, setBooks] = useState([]);
 
   async function fetchBooks(query) {
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=3`
-    );
-    const { items } = await res.json();
-    console.log(items);
-    setBooks(items || []);
+    try {
+      const res = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=3`
+      );
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const { items } = await res.json();
+      console.log(items);
+      setBooks(items || []);
+    } catch (error) {
+      console.error("Failed to fetch books:", error);
+    }
   }
 
   useEffect(() => {
@@ -90,7 +71,7 @@ function BestBooks({ handleOrderPopup }) {
                       <FaStar className="text-yellow-500" />
                       <FaStar className="text-yellow-500" />
                     </div>
-                    <h1 className="text-xl font-bold line-clamp-1">
+                    <h1 className="text-xl font-bold">
                       {book.volumeInfo.title}
                     </h1>
                     <p className="text-gray-500 group-hover:text-white duration-high text-sm line-clamp-2">

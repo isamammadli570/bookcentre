@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
-const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
+const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
 
 function AllBooks() {
   const [search, setSearch] = useState("books");

@@ -7,10 +7,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Details from "./pages/Details";
 
-const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
+const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
 
 function App() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("nietzsche");
   const [books, setBooks] = useState([]);
 
   const [orderPopup, setOrderPopup] = useState(false);
@@ -20,13 +20,21 @@ function App() {
   };
 
   async function fetchBooks(query) {
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
-    );
-    const { items } = await res.json();
-    console.log(items);
-    setBooks(items || []);
+    try {
+      const res = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
+      );
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const { items } = await res.json();
+      console.log(items);
+      setBooks(items || []);
+    } catch (error) {
+      console.error('Failed to fetch books:', error);
+    }
   }
+  
 
   useEffect(() => {
     if (search !== "") {

@@ -20,13 +20,7 @@ function AppLayout({
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
       <Navbar handleOrderPopup={handleOrderPopup} />
-      <Hero
-        search={search}
-        setSearch={setSearch}
-        books={books}
-        setBooks={setBooks}
-        handleOrderPopup={handleOrderPopup}
-      />
+      <Hero handleOrderPopup={handleOrderPopup} />
       <BestBooks handleOrderPopup={handleOrderPopup} />
       <Banner />
       <AppStoreBanner />
