@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import Logo from "../../assets/website/logo.png";
-import { FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "../DarkMode";
 
@@ -35,22 +34,27 @@ const DropdownLinks = [
 ];
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
-      <div className="container py-3 sm:py-0">
-        <div className="flex justify-between items-center">
+    <div  className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
+      <div  className="container py-3 md:py-0">
+        <div className="flex justify-between items-center flex-wrap ">
           <div>
-            <a href="/" 
-             className="font-bold text-2xl sm:text-3xl flex gap-2">
+            <a href="/" className="font-bold text-2xl md:text-3xl flex gap-2">
               <img src={Logo} alt="" className="w-10" />
               Books
             </a>
           </div>
-          <div className="flex items-center justify-between gap-4">
+          <nav className="flex items-center justify-between gap-4">
             <div>
               <DarkMode />
             </div>
-            <ul className="items-center hidden gap-2 sm:flex">
+            <ul className="items-center hidden gap-2 md:flex">
               {Menu.map((menu) => (
                 <li key={menu.id}>
                   <NavLink
@@ -94,7 +98,28 @@ function Navbar() {
               Order
               <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
             </button>
-          </div>
+            <div className="md:hidden">
+              <button onClick={toggleNavbar}>
+                {isOpen ? <FaTimes /> : <FaBars />}
+              </button>
+            </div>
+          </nav>
+          {isOpen && (
+            
+              <ul className="flex flex-col items-center basis-full p-10  ">
+                {Menu.map((menu) => (
+                  <li className="p-5 " key={menu.id}>
+                    <NavLink to={menu.link}>{menu.name}</NavLink>
+                  </li>
+                ))}
+                {DropdownLinks.map((links) => (
+                  <li className="p-5" key={links.name}>
+                    <a href={links.link}>{links.name}</a>
+                  </li>
+                ))}
+              </ul>
+            
+          )}
         </div>
       </div>
     </div>
