@@ -8,31 +8,31 @@ const ImageList = [
   {
     id: 1,
     img: Book1,
-    title: "Who's there",
+    title: "Aristotle philosophy",
     description:
-      "Uncover the stories of remarkable individuals who have shaped our world. Learn about the people who inspire and influence through their extraordinary contributions.",
+      "Aristotle was an ancient Greek philosopher and polymath whose works have profoundly influenced Western intellectual history, particularly in the fields of metaphysics, ethics, politics, and natural sciences.",
   },
   {
     id: 2,
     img: Book2,
-    title: "His Life will forever be Changed",
+    title: "How to have a life",
     description:
-      "Delve into the life of a figure whose experiences and achievements have left a lasting legacy. Explore the key moments and transformative events that define their journey.",
+      "Seneca was a Roman Stoic philosopher, statesman, and playwright whose works have had a lasting impact on Stoic philosophy and literature.",
   },
   {
     id: 3,
     img: Book3,
-    title: "Lost Boy",
+    title: "Sherlock Holmes",
     description:
-      "Follow the poignant journey of the Lost Boy, a narrative that blends adventure with self-discovery. Witness a character's quest for identity and meaning as they navigate through a world of challenges.",
+      "Sherlock Holmes is a fictional detective created by Sir Arthur Conan Doyle, renowned for his keen observation, logical reasoning, and deductive skills in solving complex cases.",
   },
 ];
 
-function Hero({handleOrderPopup}) {
+function Hero({ handleOrderPopup }) {
   const [imageId, setImageId] = useState(Book1);
-  const [title, setTitle] = useState("Who's there");
+  const [title, setTitle] = useState("Aristotle philosophy");
   const [description, setDescription] = useState(
-    "Discover the remarkable journey of a true hero. From overcoming incredible challenges to achieving great feats, this story showcases courage, resilience, and the spirit of heroism."
+    "Aristotle was an ancient Greek philosopher and polymath whose works have profoundly influenced Western intellectual history, particularly in the fields of metaphysics, ethics, politics, and natural sciences."
   );
 
   const bgImage = {
@@ -85,7 +85,7 @@ function Hero({handleOrderPopup}) {
             </p>
             <div>
               <button
-              onClick={handleOrderPopup}
+                onClick={handleOrderPopup}
                 className="bg-gradient-to-r
                 from-primary to-secondary
                 text-white px-4 py-2 
