@@ -50,7 +50,8 @@ function Popup({ orderPopup, handleOrderPopup }) {
               />
               <div className="flex justify-center">
                 <button
-                  className="bg-primary text-white
+                  className="bg-gradient-to-r
+                from-primary to-secondary text-white
                 px-8 py-2 rounded-full"
                 >
                   Order Now

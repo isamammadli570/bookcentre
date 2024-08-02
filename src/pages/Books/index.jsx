@@ -9,7 +9,7 @@ function Books({ search, setSearch, books, setBooks }) {
     
   } */
   return (
-    <div >
+    <div>
       <Navbar />
       <div className="text-center pt-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
         {/* input hissesi */}
@@ -18,6 +18,7 @@ function Books({ search, setSearch, books, setBooks }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           type="text"
+          placeholder="Search.."
           className="w-full max-w-[220px] h-[35px] p-[12px] rounded-xl 
           border-2 outline-none duration-200 shadow-xl dark:text-black  "
         />
@@ -33,17 +34,17 @@ function Books({ search, setSearch, books, setBooks }) {
               return (
                 <div key={book.id} className="p-6">
                   <Link to={`/${book.id}?id=${book.id}`}>
-                    <div className="relative text-center w-[300px] h-[400px] mb-2.5 p-6 rounded-2xl border-2">
+                    <div className="relative text-center w-[250px] h-[380px] mb-2.5 p-6 rounded-2xl border-2">
                       <img
-                        className="h-[300px] rounded shadow-2xl"
+                        className="h-[250px] rounded shadow-2xl"
                         src={thumbnail}
                         alt=""
                       />
                       <div className="flex flex-col mt-1">
-                        <h3 className="text-sm mb-1 duration-200 dark:text-white">
+                        <h3 className="text-sm line-clamp-1 mb-1 duration-200 dark:text-white">
                           {book.volumeInfo.title}
                         </h3>
-                        <p className="duration-200 font-semibold dark:text-white">
+                        <p className="duration-200 line-clamp-1 font-semibold dark:text-white">
                           {book.volumeInfo.authors?.join(", ")}
                         </p>
                       </div>
@@ -57,7 +58,9 @@ function Books({ search, setSearch, books, setBooks }) {
             </div> */}
           </div>
         ) : (
-          <p>No books found</p>
+          <div className="grid justify-center content-center h-[650px]">
+            <h1 className="text-5xl">Please search a book name..</h1>
+          </div>
         )}
       </div>
       <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 ">

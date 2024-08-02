@@ -1,48 +1,27 @@
-import React from "react";
-import Book1 from "../../assets/books/book1.jpg";
-import Book2 from "../../assets/books/book2.jpg";
-import Book3 from "../../assets/books/book3.jpg";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
-const booksData = [
-  {
-    id: 1,
-    img: Book1,
-    title: "Who's there",
-    rating: 5.0,
-    author: "Someone",
-  },
-  {
-    id: 2,
-    img: Book2,
-    title: "His Life",
-    rating: 4.5,
-    author: "John",
-  },
-  {
-    id: 3,
-    img: Book3,
-    title: "Lost boys",
-    rating: 4.7,
-    author: "Lost Girl",
-  },
-  {
-    id: 4,
-    img: Book2,
-    title: "His Life",
-    rating: 4.4,
-    author: "Someone",
-  },
-  {
-    id: 5,
-    img: Book1,
-    title: "Who's There",
-    rating: 4.5,
-    author: "Someone",
-  },
-];
+const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
 
 function AllBooks() {
+  const [search, setSearch] = useState("books");
+  const [books, setBooks] = useState([]);
+
+  async function fetchBooks(query) {
+    const res = await fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=5`
+    );
+    const { items } = await res.json();
+    console.log(items);
+    setBooks(items || []);
+  }
+
+  useEffect(() => {
+    if (search !== "") {
+      fetchBooks(search);
+    }
+  }, [search]);
   return (
     <>
       <div className="mt-14 mb-12">
@@ -66,28 +45,38 @@ function AllBooks() {
           <div data-aos="slide-up">
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
               {/* Card */}
-              {booksData.map(({ id, img, title, rating, author }) => (
-                <div key={id} className="div space-y-3">
-                  <img
-                    src={img}
-                    alt=""
-                    className="h-[220px] w-[150px] object-cover rounded-md "
-                  />
-                  <div>
-                    <h3 className="font-semibold">{title}</h3>
-                    <p className="text-sm text-gray-700">{author}</p>
-                    <div className="flex items-center gap-1">
-                      <FaStar className="text-yellow-500" />
-                      <span>{rating}</span>
+              {books.map((book) => {
+                let thumbnail =
+                  book.volumeInfo.imageLinks &&
+                  book.volumeInfo.imageLinks.smallThumbnail;
+                return (
+                  <div key={book.id} className="div space-y-3">
+                    <img
+                      src={thumbnail}
+                      alt=""
+                      className="h-[220px] w-[150px] object-cover rounded-md r "
+                    />
+                    <div>
+                      <h3 className="font-semibold">{book.volumeInfo.title}</h3>
+                      <p className="text-sm text-gray-700">
+                        {book.volumeInfo.authors?.join(", ")}
+                      </p>
+                      <div className="flex items-center gap-1">
+                        <FaStar className="text-yellow-500" />
+                        <span>4.8</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             <div className="flex justify-center">
-              <button className="text-center mt-10 cursor-pointer  bg-primary text-white py-1 px-5 rounded-md">
+              <NavLink
+                to="/books"
+                className="text-center mt-10 cursor-pointer  bg-primary text-white py-1 px-5 rounded-md"
+              >
                 View All Books
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>

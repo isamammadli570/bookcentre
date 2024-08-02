@@ -130,7 +130,7 @@ function Hero({handleOrderPopup}) {
                   src={data.img}
                   className="max-w-[100px] h-[100px]
                 object-contain inline-block 
-                hover:scale-110 duration-200"
+                hover:scale-110 duration-200 cursor-pointer"
                   alt=""
                   onClick={() => {
                     setImageId(

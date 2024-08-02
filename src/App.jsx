@@ -10,7 +10,7 @@ import Details from "./pages/Details";
 const apiKey = "AIzaSyAU-5Q4li3J5Uk31okk7CEvMGFa8ivxmxY";
 
 function App() {
-  const [search, setSearch] = useState("nietzsche");
+  const [search, setSearch] = useState("");
   const [books, setBooks] = useState([]);
 
   const [orderPopup, setOrderPopup] = useState(false);
