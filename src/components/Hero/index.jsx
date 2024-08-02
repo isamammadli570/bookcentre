@@ -65,7 +65,7 @@ function Hero({ handleOrderPopup }) {
               data-aos="zoom-out"
               data-aos-duration="500"
               data-aos-once="true"
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold mt-9"
             >
               {title}
             </h1>
@@ -120,7 +120,7 @@ function Hero({ handleOrderPopup }) {
             <div
               className="flex lg:flex-col lg:top-1/2 lg:-translate-y-1/2 
               lg:py-2 justify-center gap-4 absolute -bottom-[40px] 
-              lg:-right-1 bg-white dark:bg-gray-950 rounded-full"
+              lg:-right-1 rounded-full"
             >
               {ImageList.map((data) => (
                 <img
