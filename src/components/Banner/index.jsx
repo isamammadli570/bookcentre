@@ -30,10 +30,12 @@ function Banner() {
               Library at your fingertips
             </h1>
             <p className="text-sm text-gray-500 tracking-wide leading-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ea
-              fugiat ipsa, molestiae quasi accusamus labore dolorem at. Nisi
-              aliquam veritatis, enim eius cupiditate commodi mollitia soluta
-              fugiat libero assumenda!
+              Access a world of books anytime, anywhere with our extensive
+              digital library. From bestsellers to hidden gems, you can
+              discover, read, and enjoy a diverse range of titles with just a
+              few clicks. Whether you’re at home or on the go, our library
+              brings the joy of reading right to your fingertips, making it
+              easier than ever to immerse yourself in the stories you love.
             </p>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">

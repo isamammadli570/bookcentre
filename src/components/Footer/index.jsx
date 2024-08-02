@@ -38,8 +38,9 @@ function Footer() {
               Books Store
             </h1>
             <p className="">
-              Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Possimus, voluptate.{" "}
+              BookCentre is the perfect place to find the best books. Our
+              mission is to offer a wide selection and excellent service to book
+              lovers.
             </p>
             <br />
             <div className="flex items-center gap-3">

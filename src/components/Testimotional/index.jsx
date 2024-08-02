@@ -5,19 +5,19 @@ const testimonialData = [
   {
     id: 1,
     name: "Azer Naghiyev",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "BookCentre mənim bütün oxuma ehtiyaclarım üçün getdiyim yerdir. Seçim genişdir və xidmət əladır! Burada hər zövqə uyğun kitablar tapmaq mümkündür.",
     img: "https://picsum.photos/101/101",
   },
   {
     id: 1,
     name: "Nurana Isayeva",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "Dostluq mühiti olan gözəl kitab mağazası. Həmişə burada yeni və maraqlı kitablar kəşf edirəm. BookCentre-nin atmosferi çox rahat və ilhamvericidir.",
     img: "https://picsum.photos/102/102",
   },
   {
     id: 1,
     name: "Rashid Behdudov",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis inventore iste ratione ex alias quis magni at optio",
+    text: "BookCentre-də mövcud kitab çeşidləri hər zaman məni heyrətləndirir. Bütün kitabsevərlərə yüksək səviyyədə tövsiyə edirəm!",
     img: "https://picsum.photos/103/103",
   },
 ];
@@ -75,8 +75,8 @@ function Testimotional() {
           </p>
           <h1 className="text-3xl font-bold">Testimotional</h1>
           <p className="text-xs text-gray-400">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Perspiciatis delectus architecto error nesciunt,
+            Join our community of book lovers and discover your next great read
+            at BookCentre!
           </p>
         </div>
         {/* card hissesi */}

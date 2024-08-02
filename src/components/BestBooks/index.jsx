@@ -10,21 +10,21 @@ const Books = [
     img: Img1,
     title: "His Life",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Explore the compelling story of a life well-lived, full of experiences and achievements that inspire. Discover the moments and milestones that define this extraordinary journey.",
   },
   {
     id: 2,
     img: Img2,
     title: "Who's there",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Meet the influential figures and notable personalities featured in our collection. Learn about their contributions and the impact they've made in their respective fields.",
   },
   {
     id: 3,
     img: Img3,
     title: "Lost Boy",
     description:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Delve into the captivating narrative of the Lost Boy, a journey filled with adventure, self-discovery, and unexpected twists. Follow the path of a character who navigates through challenges to uncover profound truths.",
   },
 ];
 
@@ -40,8 +40,7 @@ function BestBooks({ handleOrderPopup }) {
             </p>
             <h1 className="text-3xl font-bold">Best Books</h1>
             <p className="text-xs text-gray-400">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Perspiciatis delectus architecto error nesciunt,
+            Discover our handpicked selection of the best books across all genres.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 md:gap-5 place-items-center">

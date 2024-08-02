@@ -48,16 +48,17 @@ function AllBooks() {
       <div className="mt-14 mb-12">
         <div className="container">
           {/* header hissesi */}
-          <div 
-          data-aos="slide-up"
-          className="text-center mb-10 max-w-[600px] mx-auto">
+          <div
+            data-aos="slide-up"
+            className="text-center mb-10 max-w-[600px] mx-auto"
+          >
             <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
               Best Books
             </p>
             <h1 className="text-3xl font-bold">Top Books</h1>
             <p className="text-xs text-gray-400">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Perspiciatis delectus architecto error nesciunt,
+              Explore our top picks and find your next favorite book from our
+              carefully curated selection.
             </p>
           </div>
 

@@ -41,9 +41,9 @@ function Navbar() {
   };
 
   return (
-    <div  className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
-      <div  className="container py-3 md:py-0">
-        <div className="flex justify-between items-center flex-wrap ">
+    <div className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
+      <div className="container py-3 md:py-0">
+        <div  className="flex justify-between items-center flex-wrap ">
           <div>
             <a href="/" className="font-bold text-2xl md:text-3xl flex gap-2">
               <img src={Logo} alt="" className="w-10" />
@@ -98,27 +98,25 @@ function Navbar() {
               Order
               <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
             </button>
-            <div className="md:hidden">
+            <div  className="md:hidden">
               <button onClick={toggleNavbar}>
                 {isOpen ? <FaTimes /> : <FaBars />}
               </button>
             </div>
           </nav>
           {isOpen && (
-            
-              <ul className="flex flex-col items-center basis-full p-10  ">
-                {Menu.map((menu) => (
-                  <li className="p-5 " key={menu.id}>
-                    <NavLink to={menu.link}>{menu.name}</NavLink>
-                  </li>
-                ))}
-                {DropdownLinks.map((links) => (
-                  <li className="p-5" key={links.name}>
-                    <a href={links.link}>{links.name}</a>
-                  </li>
-                ))}
-              </ul>
-            
+            <ul className="flex flex-col items-center basis-full p-10  ">
+              {Menu.map((menu) => (
+                <li className="p-5 " key={menu.id}>
+                  <NavLink to={menu.link}>{menu.name}</NavLink>
+                </li>
+              ))}
+              {DropdownLinks.map((links) => (
+                <li className="p-5" key={links.name}>
+                  <a href={links.link}>{links.name}</a>
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       </div>
