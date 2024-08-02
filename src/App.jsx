@@ -31,10 +31,9 @@ function App() {
       console.log(items);
       setBooks(items || []);
     } catch (error) {
-      console.error('Failed to fetch books:', error);
+      console.error("Failed to fetch books:", error);
     }
   }
-  
 
   useEffect(() => {
     if (search !== "") {
@@ -61,10 +60,6 @@ function App() {
             <AppLayout
               orderPopup={orderPopup}
               handleOrderPopup={handleOrderPopup}
-              search={search}
-              setSearch={setSearch}
-              books={books}
-              setBooks={setBooks}
             />
           }
         />

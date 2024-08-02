@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Book1 from "../../assets/books/book1.jpg";
 import Book2 from "../../assets/books/book2.jpg";
 import Book3 from "../../assets/books/book3.jpg";
-import Vector from "../../assets/website/blue-pattern.png";
+import Vector from "../../assets/website/pattern.png";
 
 const ImageList = [
   {
@@ -113,7 +113,7 @@ function Hero({ handleOrderPopup }) {
                 alt=""
                 className="w-[300px] h-[300px] 
               sm:[h-450px] sm:w-[450px] sm:scale-125 
-              object-contain mx-auto"
+              object-contain mx-auto "
               />
             </div>
             {/* diger sekiller */}
@@ -129,7 +129,7 @@ function Hero({ handleOrderPopup }) {
                   key={data.id}
                   src={data.img}
                   className="max-w-[100px] h-[100px]
-                object-contain inline-block 
+                object-contain inline-block shadow
                 hover:scale-110 duration-200 cursor-pointer"
                   alt=""
                   onClick={() => {

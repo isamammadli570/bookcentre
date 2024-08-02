@@ -9,14 +9,7 @@ import Testimotional from "./components/Testimotional";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
 
-function AppLayout({
-  search,
-  setSearch,
-  books,
-  setBooks,
-  handleOrderPopup,
-  orderPopup,
-}) {
+function AppLayout({ handleOrderPopup, orderPopup }) {
   return (
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
       <Navbar handleOrderPopup={handleOrderPopup} />
