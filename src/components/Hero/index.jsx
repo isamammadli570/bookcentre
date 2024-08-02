@@ -28,7 +28,7 @@ const ImageList = [
   },
 ];
 
-function Hero() {
+function Hero({handleOrderPopup}) {
   const [imageId, setImageId] = useState(Book1);
   const [title, setTitle] = useState("Who's there");
   const [description, setDescription] = useState(
@@ -85,6 +85,7 @@ function Hero() {
             </p>
             <div>
               <button
+              onClick={handleOrderPopup}
                 className="bg-gradient-to-r
                 from-primary to-secondary
                 text-white px-4 py-2 

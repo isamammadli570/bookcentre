@@ -13,7 +13,13 @@ function App() {
   const [search, setSearch] = useState("nietzsche");
   const [books, setBooks] = useState([]);
 
- async function fetchBooks(query) {
+  const [orderPopup, setOrderPopup] = useState(false);
+
+  const handleOrderPopup = () => {
+    setOrderPopup(!orderPopup);
+  };
+
+  async function fetchBooks(query) {
     const res = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
     );
@@ -26,9 +32,9 @@ function App() {
     if (search !== "") {
       fetchBooks(search);
     }
-  }, [search]); 
+  }, [search]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     AOS.init({
       offset: 100,
       duration: 800,
@@ -45,6 +51,8 @@ function App() {
           index
           element={
             <AppLayout
+              orderPopup={orderPopup}
+              handleOrderPopup={handleOrderPopup}
               search={search}
               setSearch={setSearch}
               books={books}

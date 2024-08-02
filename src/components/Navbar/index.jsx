@@ -33,7 +33,7 @@ const DropdownLinks = [
   },
 ];
 
-function Navbar() {
+function Navbar({ handleOrderPopup }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -43,7 +43,7 @@ function Navbar() {
   return (
     <div className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
       <div className="container py-3 md:py-0">
-        <div  className="flex justify-between items-center flex-wrap ">
+        <div className="flex justify-between items-center flex-wrap ">
           <div>
             <a href="/" className="font-bold text-2xl md:text-3xl flex gap-2">
               <img src={Logo} alt="" className="w-10" />
@@ -94,11 +94,14 @@ function Navbar() {
                 </div>
               </li>
             </ul>
-            <button className="flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full hover:scale-105 duration-300">
+            <button
+              onClick={handleOrderPopup}
+              className="flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full hover:scale-105 duration-300"
+            >
               Order
               <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
             </button>
-            <div  className="md:hidden">
+            <div className="md:hidden">
               <button onClick={toggleNavbar}>
                 {isOpen ? <FaTimes /> : <FaBars />}
               </button>
