@@ -15,7 +15,7 @@ const ImageList = [
   {
     id: 2,
     img: Book2,
-    title: "How to have a life",
+    title: "How to have a life: Seneca",
     description:
       "Seneca was a Roman Stoic philosopher, statesman, and playwright whose works have had a lasting impact on Stoic philosophy and literature.",
   },
