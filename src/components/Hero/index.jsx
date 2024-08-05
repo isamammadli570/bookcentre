@@ -10,12 +10,12 @@ const ImageList = [
     img: Book1,
     title: "Aristotle philosophy",
     description:
-      "Aristotle was an ancient Greek philosopher and polymath whose works have profoundly influenced Western intellectual history, particularly in the fields of metaphysics, ethics, politics, and natural sciences.",
+      "Aristotle was an ancient Greek philosopher and polymath whose works have profoundly influenced Western intellectual history, particularly in the fields of metaphysics, ethics, politics, and etc.",
   },
   {
     id: 2,
     img: Book2,
-    title: "How to have a life: Seneca",
+    title: "How to have a life",
     description:
       "Seneca was a Roman Stoic philosopher, statesman, and playwright whose works have had a lasting impact on Stoic philosophy and literature.",
   },

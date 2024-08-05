@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import AppLayout from "./AppLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Books from "./pages/Books";
+import Details from "./pages/Details";
+
 // aos import
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Details from "./pages/Details";
 
 const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
 

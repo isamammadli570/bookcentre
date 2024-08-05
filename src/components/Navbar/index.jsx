@@ -21,11 +21,11 @@ const Menu = [
 const DropdownLinks = [
   {
     name: "Trending Books",
-    link: "/#",
+    link: "/#top",
   },
   {
     name: "Best Selling",
-    link: "/#",
+    link: "/#top",
   },
   {
     name: "Authors",
