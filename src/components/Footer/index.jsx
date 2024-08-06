@@ -28,7 +28,7 @@ const FooterLinks = [
 ];
 function Footer() {
   return (
-    <div className="bg-gray-100 dark:bg-gray-950">
+    <div id="about" className="bg-gray-100 dark:bg-gray-950">
       <section className="container">
         <div className=" grid md:grid-cols-3 py-5">
           {/* detail hisse */}

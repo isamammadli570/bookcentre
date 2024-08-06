@@ -32,7 +32,7 @@ function AllBooks() {
             className="text-center mb-10 max-w-[600px] mx-auto"
           >
             <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              Best Books
+              Trending Books
             </p>
             <h1 className="text-3xl font-bold">Top Books</h1>
             <p className="text-xs text-gray-400">
