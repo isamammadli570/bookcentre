@@ -27,29 +27,32 @@ function Books({ search, setSearch, books, setBooks }) {
         {/* card hissesi */}
         {books.length > 0 ? (
           <div className="flex justify-center flex-wrap">
-            {books.map((book) => {
+            {books?.map((book) => {
               let thumbnail =
                 book.volumeInfo.imageLinks &&
                 book.volumeInfo.imageLinks.smallThumbnail;
               return (
                 <div key={book.id} className="p-6">
-                  <Link to={`/${book.id}?id=${book.id}`}>
-                    <div className="relative text-center w-[250px] h-[380px] mb-2.5 p-6 rounded-2xl border-2">
-                      <img
-                        className="h-[250px] rounded shadow-2xl"
-                        src={thumbnail}
-                        alt=""
-                      />
-                      <div className="flex flex-col mt-1">
-                        <h3 className="text-sm line-clamp-1 mb-1 duration-200 dark:text-white">
-                          {book.volumeInfo.title}
-                        </h3>
-                        <p className="duration-200 line-clamp-1 font-semibold dark:text-white">
-                          {book.volumeInfo.authors?.join(", ")}
-                        </p>
+                  <div className="relative text-center w-[250px] h-[380px] mb-2.5 p-6 rounded-2xl border-2">
+                    <Link to={`/${book.id}?id=${book.id}`}>
+                      <div>
+                        <img
+                          className="h-[250px] rounded shadow-2xl"
+                          src={thumbnail}
+                          alt=""
+                        />
+                        <div className="flex flex-col mt-1">
+                          <h3 className="text-sm line-clamp-1 mb-1 duration-200 dark:text-white">
+                            {book.volumeInfo.title}
+                          </h3>
+                          <p className="duration-200 line-clamp-1 font-semibold dark:text-white">
+                            {book.volumeInfo.authors?.join(", ")}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                    {/* <button className="bg-gray-300">Add to Cart</button> */}
+                  </div>
                 </div>
               );
             })}

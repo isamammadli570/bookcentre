@@ -7,12 +7,20 @@ import Details from "./pages/Details";
 // aos import
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Cart from "./pages/Cart";
 
 const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
 
 function App() {
   const [search, setSearch] = useState("nietzsche");
   const [books, setBooks] = useState([]);
+
+  /* const [cart, setCart] = useState([]);
+
+  console.log(cart);
+  const addToCart = (data) => {
+    setCart([...cart, {...data, quantity: 1}]);
+  }; */
 
   const [orderPopup, setOrderPopup] = useState(false);
 
@@ -72,9 +80,11 @@ function App() {
               setSearch={setSearch}
               books={books}
               setBooks={setBooks}
+              /* addToCart={addToCart} */
             />
           }
         />
+        <Route path="cart" element={<Cart /* cart={cart} */ />} />
         <Route path=":id" element={<Details />} />
       </Routes>
     </BrowserRouter>
