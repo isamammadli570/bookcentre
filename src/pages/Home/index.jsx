@@ -4,7 +4,6 @@ import BestBooks from "../../ui/BestBooks";
 import Banner from "../../ui/Banner";
 import AppStoreBanner from "../../ui/AppStoreBanner";
 import AllBooks from "../../ui/AllBooks";
-import Testimotional from "../../ui/Testimotional";
 
 function Home({ handleOrderPopup, orderPopup }) {
   return (
@@ -14,7 +13,6 @@ function Home({ handleOrderPopup, orderPopup }) {
       <Banner />
       <AppStoreBanner />
       <AllBooks />
-      <Testimotional />
     </div>
   );
 }

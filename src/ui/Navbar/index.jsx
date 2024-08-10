@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/website/logo.png";
 import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "../DarkMode";
+import { CartContext } from "../../context/ContextProvider";
 
 const Menu = [
   {
@@ -33,13 +34,14 @@ const DropdownLinks = [
   },
 ];
 
-function Navbar({ handleOrderPopup }) {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const { cart } = useContext(CartContext);
   return (
     <div className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
       <div className="container py-3 md:py-0">
@@ -94,13 +96,12 @@ function Navbar({ handleOrderPopup }) {
                 </div>
               </li>
             </ul>
-            <button
-              onClick={handleOrderPopup}
-              className="flex items-center gap-3 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full hover:scale-105 duration-300"
-            >
-              Order
-              <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
-            </button>
+
+            <Link className="flex" to="/cart">
+              <FaCartShopping />
+              <sup className="mt-1 text-yellow-900">{`${cart.length}`}</sup>
+            </Link>
+
             <div className="md:hidden">
               <button onClick={toggleNavbar}>
                 {isOpen ? <FaTimes /> : <FaBars />}

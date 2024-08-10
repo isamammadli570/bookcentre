@@ -4,9 +4,10 @@ import App from "./App.jsx";
 import "./index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ContextProvider from "./context/ContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <ContextProvider>
     <App />
-  </React.StrictMode>
+  </ContextProvider>
 );

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
 import Popup from "./ui/Popup";
+import Testimotional from "./ui/Testimotional"
 import { Outlet } from "react-router-dom";
 
 function AppLayout({ handleOrderPopup, orderPopup }) {
@@ -9,6 +10,7 @@ function AppLayout({ handleOrderPopup, orderPopup }) {
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
       <Navbar handleOrderPopup={handleOrderPopup} />
       <Outlet />
+      <Testimotional />
       <Footer />
       <Popup orderPopup={orderPopup} handleOrderPopup={handleOrderPopup} />
     </div>
