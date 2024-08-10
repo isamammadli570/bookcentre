@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getBooksApi } from "../../services/bookApi";
 import { useState } from "react";
-import Spinner from "../../components/Spinner";
+import Spinner from "../../ui/Spinner";
+import BooksItem from "../../features/BooksItem";
 
 function Books() {
   const [search, setSearch] = useState("nietzsche");
@@ -33,32 +33,7 @@ function Books() {
         <div className="p-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
           <div className="flex justify-center flex-wrap">
             {book?.map((book) => {
-              let thumbnail =
-                book.volumeInfo.imageLinks &&
-                book.volumeInfo.imageLinks.smallThumbnail;
-              return (
-                <div key={book.id} className="p-6">
-                  <div className="relative text-center w-[250px] h-[380px] mb-2.5 p-6 rounded-2xl border-2">
-                    <Link to={`/${book.id}?id=${book.id}`}>
-                      <div>
-                        <img
-                          className="h-[250px] rounded shadow-2xl"
-                          src={thumbnail}
-                          alt=""
-                        />
-                        <div className="flex flex-col mt-1">
-                          <h3 className="text-sm line-clamp-1 mb-1 duration-200 dark:text-white">
-                            {book.volumeInfo.title}
-                          </h3>
-                          <p className="duration-200 line-clamp-1 font-semibold dark:text-white">
-                            {book.volumeInfo.authors?.join(", ")}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              );
+              return <BooksItem book={book} key={book.id} />;
             })}
           </div>
           {!book?.length && (

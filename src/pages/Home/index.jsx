@@ -1,22 +1,22 @@
-import React from 'react'
-import Hero from '../../components/Hero'
-import BestBooks from '../../components/BestBooks'
-import Banner from '../../components/Banner'
-import AllBooks from '../../components/AllBooks'
-import Testimotional from '../../components/Testimotional'
-import AppStoreBanner from '../../components/AppStoreBanner'
+import React from "react";
+import Hero from "../../ui/Hero";
+import BestBooks from "../../ui/BestBooks";
+import Banner from "../../ui/Banner";
+import AppStoreBanner from "../../ui/AppStoreBanner";
+import AllBooks from "../../ui/AllBooks";
+import Testimotional from "../../ui/Testimotional";
 
 function Home({ handleOrderPopup, orderPopup }) {
   return (
     <div>
-        <Hero handleOrderPopup={handleOrderPopup} />
+      <Hero handleOrderPopup={handleOrderPopup} />
       <BestBooks handleOrderPopup={handleOrderPopup} />
       <Banner />
       <AppStoreBanner />
       <AllBooks />
       <Testimotional />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

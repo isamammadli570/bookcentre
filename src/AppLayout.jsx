@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Popup from "./components/Popup";
+import Navbar from "./ui/Navbar";
+import Footer from "./ui/Footer";
+import Popup from "./ui/Popup";
 import { Outlet } from "react-router-dom";
 
 function AppLayout({ handleOrderPopup, orderPopup }) {

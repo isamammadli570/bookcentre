@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { getAllBooksApi } from "../../services/bookApi";
+import AllBooksItem from "../../features/AllBooksItem";
 
 function AllBooks() {
-  const [search, setSearch] = useState("books");
+  const [search] = useState("books");
 
   const { data: book } = useQuery({
     queryKey: ["books", { search }],
@@ -35,28 +35,7 @@ function AllBooks() {
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
               {/* Card */}
               {book?.map((book) => {
-                let thumbnail =
-                  book.volumeInfo.imageLinks &&
-                  book.volumeInfo.imageLinks.smallThumbnail;
-                return (
-                  <div key={book.id} className="div space-y-3">
-                    <img
-                      src={thumbnail}
-                      alt=""
-                      className="h-[220px] w-[150px] object-cover rounded-md r "
-                    />
-                    <div>
-                      <h3 className="font-semibold">{book.volumeInfo.title}</h3>
-                      <p className="text-sm text-gray-700">
-                        {book.volumeInfo.authors?.join(", ")}
-                      </p>
-                      <div className="flex items-center gap-1">
-                        <FaStar className="text-yellow-500" />
-                        <span>4.8</span>
-                      </div>
-                    </div>
-                  </div>
-                );
+                return <AllBooksItem book={book} key={book.id}/>
               })}
             </div>
             <div className="flex justify-center">
