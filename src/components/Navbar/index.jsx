@@ -108,7 +108,7 @@ function Navbar({ handleOrderPopup }) {
             </div>
           </nav>
           {isOpen && (
-            <ul className="flex flex-col items-center basis-full p-10  ">
+            <ul className="flex flex-col items-center basis-full p-10 ">
               {Menu.map((menu) => (
                 <li className="p-5 " key={menu.id}>
                   <NavLink to={menu.link}>{menu.name}</NavLink>
