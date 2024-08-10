@@ -1,45 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
 import { useSearchParams } from "react-router-dom";
-import Footer from "../../components/Footer";
-import Testimotional from "../../components/Testimotional";
-/* import { useQuery } from "@tanstack/react-query";
-import { getBooksByID } from "../../services/bookApi"; */
+import { useQuery } from "@tanstack/react-query";
+import { getBooksByID } from "../../services/bookApi";
 
 function Details() {
-  const [details, setDetails] = useState();
-
   const [searchParam] = useSearchParams();
   const id = searchParam.get("id");
 
-  console.log(id);
-
-  /* const { data: book } = useQuery({
+  const { data: book } = useQuery({
     queryKey: ["books", id],
     queryFn: () => getBooksByID(id),
   });
-  console.log({ data: book }); */
-
-  useEffect(
-    function () {
-      async function fetchDetails() {
-        const res = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=${id}`
-        );
-        const { items } = await res.json();
-        setDetails(items);
-      }
-      fetchDetails();
-    },
-    [id]
-  );
 
   return (
     <div className="dark:bg-gray-950 duration-200 ">
       <div className="bg-white dark:bg-gray-950 dark:text-white duration-200 ">
-        <Navbar />
         <div className="app w-full max-w-7xl md:m-[100px] border shadow-2xl ">
-          {details?.map((detail) => {
+          {book?.map((detail) => {
             let thumbnail =
               detail.volumeInfo.imageLinks &&
               detail.volumeInfo.imageLinks.smallThumbnail;
@@ -101,10 +77,6 @@ function Details() {
             );
           })}
         </div>
-      </div>
-      <div className="dark:text-white dark:bg-gray-900 duration-200 ">
-        <Testimotional />
-        <Footer />
       </div>
     </div>
   );

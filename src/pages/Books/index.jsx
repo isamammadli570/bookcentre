@@ -1,13 +1,8 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import Testimotional from "../../components/Testimotional";
-
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getBooksApi } from "../../services/bookApi";
 import { useState } from "react";
 import Spinner from "../../components/Spinner";
-import { CgSmileSad } from "react-icons/cg";
 
 function Books() {
   const [search, setSearch] = useState("nietzsche");
@@ -16,11 +11,9 @@ function Books() {
     queryKey: ["books", { search }],
     queryFn: () => getBooksApi(search),
   });
-  console.log({ data: book, isLoading });
 
   return (
     <div>
-      <Navbar />
       <div className="text-center pt-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
         <h1 className="text-3xl font-bold py-2">Search a book..</h1>
         <input
@@ -70,18 +63,11 @@ function Books() {
           </div>
           {!book?.length && (
             <div className="flex uppercase justify-center mt-32 items-center text-2xl text-tertiary_light gap-4">
-              No results found <CgSmileSad className="" />{" "}
+              No results found
             </div>
           )}
         </div>
       )}
-
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 ">
-        <Testimotional />
-        <div className="dark:bg-gray-950 duration-200 ">
-          <Footer />
-        </div>
-      </div>
     </div>
   );
 }

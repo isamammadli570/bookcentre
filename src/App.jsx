@@ -9,6 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Cart from "./pages/Cart";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Home from "./pages/Home";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,18 +38,20 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route
-            index
-            element={
-              <AppLayout
-                orderPopup={orderPopup}
-                handleOrderPopup={handleOrderPopup}
-              />
-            }
-          />
-          <Route path="books" element={<Books />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path=":id" element={<Details />} />
+          <Route element={<AppLayout />}>
+            <Route
+              path="/"
+              element={
+                <Home
+                  orderPopup={orderPopup}
+                  handleOrderPopup={handleOrderPopup}
+                />
+              }
+            />
+            <Route path="books" element={<Books />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path=":id" element={<Details />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

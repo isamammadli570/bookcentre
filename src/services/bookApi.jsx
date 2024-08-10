@@ -9,18 +9,22 @@ export async function getBooksApi(query) {
 
 export async function getBooksByID(id) {
   const res = await fetch(`${BASE_URL}volumes?q=${id}`);
-  const { items } = res.json();
+  const { items } = await res.json();
   return items;
 }
 
 export async function getBestBooksApi(query) {
-  const res = await fetch(`${BASE_URL}volumes?q=${query}&key=${apiKey}&maxResults=3`);
+  const res = await fetch(
+    `${BASE_URL}volumes?q=${query}&key=${apiKey}&maxResults=3`
+  );
   const { items } = await res.json();
   return items;
 }
 
 export async function getAllBooksApi(query) {
-  const res = await fetch(`${BASE_URL}volumes?q=${query}&key=${apiKey}&maxResults=5`);
+  const res = await fetch(
+    `${BASE_URL}volumes?q=${query}&key=${apiKey}&maxResults=5`
+  );
   const { items } = await res.json();
   return items;
 }
