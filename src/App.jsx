@@ -8,47 +8,20 @@ import Details from "./pages/Details";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Cart from "./pages/Cart";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
+const queryClient = new QueryClient({
+  defaultOptions: {
+    staleTime: 60 * 1000,
+  },
+});
 
 function App() {
-  const [search, setSearch] = useState("nietzsche");
-  const [books, setBooks] = useState([]);
-
-  /* const [cart, setCart] = useState([]);
-
-  console.log(cart);
-  const addToCart = (data) => {
-    setCart([...cart, {...data, quantity: 1}]);
-  }; */
-
   const [orderPopup, setOrderPopup] = useState(false);
 
   const handleOrderPopup = () => {
     setOrderPopup(!orderPopup);
   };
-
-  async function fetchBooks(query) {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}`
-      );
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      const { items } = await res.json();
-      console.log(items);
-      setBooks(items || []);
-    } catch (error) {
-      console.error("Failed to fetch books:", error);
-    }
-  }
-
-  useEffect(() => {
-    if (search !== "") {
-      fetchBooks(search);
-    }
-  }, [search]);
 
   useEffect(() => {
     AOS.init({
@@ -61,33 +34,24 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          index
-          element={
-            <AppLayout
-              orderPopup={orderPopup}
-              handleOrderPopup={handleOrderPopup}
-            />
-          }
-        />
-        <Route
-          path="books"
-          element={
-            <Books
-              search={search}
-              setSearch={setSearch}
-              books={books}
-              setBooks={setBooks}
-              /* addToCart={addToCart} */
-            />
-          }
-        />
-        <Route path="cart" element={<Cart /* cart={cart} */ />} />
-        <Route path=":id" element={<Details />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            index
+            element={
+              <AppLayout
+                orderPopup={orderPopup}
+                handleOrderPopup={handleOrderPopup}
+              />
+            }
+          />
+          <Route path="books" element={<Books />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path=":id" element={<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

@@ -3,13 +3,22 @@ import Navbar from "../../components/Navbar";
 import { useSearchParams } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Testimotional from "../../components/Testimotional";
+/* import { useQuery } from "@tanstack/react-query";
+import { getBooksByID } from "../../services/bookApi"; */
 
 function Details() {
   const [details, setDetails] = useState();
 
   const [searchParam] = useSearchParams();
   const id = searchParam.get("id");
+
   console.log(id);
+
+  /* const { data: book } = useQuery({
+    queryKey: ["books", id],
+    queryFn: () => getBooksByID(id),
+  });
+  console.log({ data: book }); */
 
   useEffect(
     function () {
@@ -18,7 +27,6 @@ function Details() {
           `https://www.googleapis.com/books/v1/volumes?q=${id}`
         );
         const { items } = await res.json();
-        console.log(items);
         setDetails(items);
       }
       fetchDetails();

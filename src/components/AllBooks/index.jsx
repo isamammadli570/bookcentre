@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-
-const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
+import { getAllBooksApi } from "../../services/bookApi";
 
 function AllBooks() {
   const [search, setSearch] = useState("books");
-  const [books, setBooks] = useState([]);
 
-  async function fetchBooks(query) {
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=5`
-    );
-    const { items } = await res.json();
-    console.log(items);
-    setBooks(items || []);
-  }
-
-  useEffect(() => {
-    if (search !== "") {
-      fetchBooks(search);
-    }
-  }, [search]);
+  const { data: book } = useQuery({
+    queryKey: ["books", { search }],
+    queryFn: () => getAllBooksApi(search),
+  });
   return (
     <>
       <div id="top" className="mt-14 mb-12">
@@ -45,7 +34,7 @@ function AllBooks() {
           <div data-aos="slide-up">
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
               {/* Card */}
-              {books.map((book) => {
+              {book?.map((book) => {
                 let thumbnail =
                   book.volumeInfo.imageLinks &&
                   book.volumeInfo.imageLinks.smallThumbnail;

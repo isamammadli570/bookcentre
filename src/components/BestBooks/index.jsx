@@ -1,33 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-
-const apiKey = "AIzaSyBbjWuSxjD4ZBIpl9o2TazEMiT0j7OvnGM";
+import { getBestBooksApi } from "../../services/bookApi";
 
 function BestBooks({ handleOrderPopup }) {
   const [search, setSearch] = useState("nietzsche");
-  const [books, setBooks] = useState([]);
 
-  async function fetchBooks(query) {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${apiKey}&maxResults=3`
-      );
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      const { items } = await res.json();
-      console.log(items);
-      setBooks(items || []);
-    } catch (error) {
-      console.error("Failed to fetch books:", error);
-    }
-  }
+  const { data: book } = useQuery({
+    queryKey: ["books", { search }],
+    queryFn: () => getBestBooksApi(search),
+  });
 
-  useEffect(() => {
-    if (search !== "") {
-      fetchBooks(search);
-    }
-  }, [search]);
   return (
     <>
       <div id="best" className="py-10">
@@ -43,7 +26,7 @@ function BestBooks({ handleOrderPopup }) {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 md:gap-5 place-items-center">
-            {books.map((book) => {
+            {book?.map((book) => {
               let thumbnail =
                 book.volumeInfo.imageLinks &&
                 book.volumeInfo.imageLinks.smallThumbnail;
