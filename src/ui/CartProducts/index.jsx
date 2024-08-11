@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/ContextProvider";
 
 function CartProducts({ book }) {
-  const { cart, dispatch } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
 
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AppLayout from "./AppLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Books from "./pages/Books";
@@ -18,12 +18,6 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const [orderPopup, setOrderPopup] = useState(false);
-
-  const handleOrderPopup = () => {
-    setOrderPopup(!orderPopup);
-  };
-
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -39,15 +33,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route
-              path="/"
-              element={
-                <Home
-                  orderPopup={orderPopup}
-                  handleOrderPopup={handleOrderPopup}
-                />
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route path="books" element={<Books />} />
             <Route path="cart" element={<Cart />} />
             <Route path=":id" element={<Details />} />
