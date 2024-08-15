@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/website/logo.png";
-import { FaCaretDown, FaBars, FaTimes } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import DarkMode from "../DarkMode";
 import { CartContext } from "../../context/ContextProvider";
+import { HiBars3BottomRight } from "react-icons/hi2";
 
 const Menu = [
   {
@@ -34,13 +35,7 @@ const DropdownLinks = [
   },
 ];
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
-
+function Navbar({ isOpen, setIsOpen }) {
   const { cart } = useContext(CartContext);
   return (
     <div className="shadow-lg bg-white dark:bg-gray-900 dark:text-white duration-200">
@@ -96,32 +91,19 @@ function Navbar() {
                 </div>
               </li>
             </ul>
-
             <Link className="flex" to="/cart">
               <FaCartShopping />
               <sup className="mt-1 text-yellow-900">{`${cart.length}`}</sup>
             </Link>
-
-            <div className="md:hidden">
-              <button onClick={toggleNavbar}>
-                {isOpen ? <FaTimes /> : <FaBars />}
-              </button>
+            <div>
+              {!isOpen && (
+                <HiBars3BottomRight
+                  onClick={() => setIsOpen((open) => !open)}
+                  className={` md:hidden text-2xl cursor-pointer`}
+                />
+              )}
             </div>
           </nav>
-          {isOpen && (
-            <ul className="flex flex-col items-center basis-full p-10 ">
-              {Menu.map((menu) => (
-                <li className="p-5 " key={menu.id}>
-                  <NavLink to={menu.link}>{menu.name}</NavLink>
-                </li>
-              ))}
-              {DropdownLinks.map((links) => (
-                <li className="p-5" key={links.name}>
-                  <a href={links.link}>{links.name}</a>
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
     </div>
