@@ -4,6 +4,7 @@ const BASE_URL = "https://www.googleapis.com/books/v1/";
 export async function getBooksApi(query) {
   const res = await fetch(`${BASE_URL}volumes?q=${query}&key=${apiKey}`);
   const { items } = await res.json();
+  console.log(items)
   return items;
 }
 

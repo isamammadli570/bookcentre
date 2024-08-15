@@ -2,8 +2,13 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/ContextProvider";
 
+//toastify import
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function BooksItem({ book }) {
   const { dispatch } = useContext(CartContext);
+  const notify = () => toast("Wow so easy!");
 
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
@@ -30,10 +35,13 @@ function BooksItem({ book }) {
           </Link>
           <button
             onClick={() => dispatch({ type: "Add", book: book })}
-            className="bg-yellow-300 text-gray-600 rounded-md p-1 mt-1 hover:bg-yellow-400"
+            className="border border-green-500 text-green-500 rounded-md 
+            p-1 mt-1 hover:bg-green-400 hover:text-white duration-200"
           >
+            
             Add to Cart
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>

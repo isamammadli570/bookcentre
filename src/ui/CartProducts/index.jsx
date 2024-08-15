@@ -7,13 +7,16 @@ function CartProducts({ book }) {
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
   return (
-    <div className="flex border px-24 py-10">
-      <img src={thumbnail} className="w-25 h-25" alt="" />
+    <div className="flex border md:w-[80rem] px-24 py-10 gap-3 md:m-6">
+      <img src={thumbnail} className="md:w-24 md:h-full w-10 h-10" alt="" />
       <div className="ms-4">
         <h4>{book.volumeInfo.title}</h4>
-
+        <div className="mt-5 text-gray-500">
+          <p className="line-clamp-2">{book.searchInfo.textSnippet}</p>
+        </div>
         <button
-          className="bg-yellow-300 text-gray-600 rounded-md p-1 hover:bg-yellow-400"
+          className="border border-red-500 text-red-500 rounded-md p-1
+           hover:bg-red-500 hover:text-white duration-200 mt-2"
           onClick={() => dispatch({ type: "Remove", id: book.id })}
         >
           Remove

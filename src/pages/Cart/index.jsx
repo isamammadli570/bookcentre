@@ -7,13 +7,9 @@ function Cart() {
 
   return (
     <div>
-      <div>
-        <div>
-          {cart?.map((book) => (
-            <CartProducts book={book} key={book.id}></CartProducts>
-          ))}
-        </div>
-      </div>
+      {cart?.map((book) => (
+        <CartProducts book={book} key={book.id}></CartProducts>
+      ))}
     </div>
   );
 }
