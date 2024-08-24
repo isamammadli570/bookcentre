@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/ContextProvider";
 
 //toastify import
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+/* import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; */
 
 function BooksItem({ book }) {
   const { dispatch } = useContext(CartContext);
-  const notify = () => toast("Wow so easy!");
+  /* const notify = () => toast("Wow so easy!"); */
 
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
@@ -41,7 +41,7 @@ function BooksItem({ book }) {
             
             Add to Cart
           </button>
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </div>
       </div>
     </div>
