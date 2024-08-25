@@ -7,7 +7,10 @@ function CartProducts({ book }) {
   let thumbnail =
     book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
   return (
-    <div className="flex bg-stone-100 border md:w-[80rem] px-24 py-10 gap-3 md:m-6">
+    <div
+      className="flex bg-stone-100 dark:bg-gray-800 border md:w-[80rem] 
+    px-24 py-10 gap-3 md:m-6"
+    >
       <img src={thumbnail} className="md:w-24 md:h-full w-10 h-10" alt="" />
       <div className="ms-4">
         <h4>{book.volumeInfo.title}</h4>
