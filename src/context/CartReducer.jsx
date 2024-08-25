@@ -6,7 +6,7 @@ const CartReducer = (state, action) => {
       
 
     case "Remove":
-      return state.filter((book) => book !== action);
+      return state.filter((book) => book.id !== action.id);
 
       /* if (action.type === "ACTION_DELETE_FAVORITE") {
         return {
