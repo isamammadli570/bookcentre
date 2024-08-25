@@ -6,7 +6,16 @@ const CartReducer = (state, action) => {
       
 
     case "Remove":
-      return state.filter((book) => book.id !== action.id);
+      return state.filter((book) => book !== action);
+
+      /* if (action.type === "ACTION_DELETE_FAVORITE") {
+        return {
+          ...state,
+          favorites: state.favorites.filter(
+            (fav) => fav.idDrink !== action.payload && fav.idMeal !== action.payload
+          ),
+        };
+      } */
 
     default:
       state;
