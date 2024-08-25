@@ -13,8 +13,8 @@ function Details() {
   });
 
   return (
-    <div className="dark:bg-gray-950 duration-200 ">
-      <div className="bg-white dark:bg-gray-950 dark:text-white duration-200 ">
+    <div className="dark:bg-gray-950  duration-200 ">
+      <div className="bg-stone-100 dark:bg-gray-950 dark:text-white duration-200 ">
         <div className="app w-full max-w-7xl md:m-[100px] border shadow-2xl ">
           {book?.map((detail) => {
             return <DetailsItem detail={detail} key={detail.id} />;

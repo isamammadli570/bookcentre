@@ -8,7 +8,7 @@ import ResponsiveNav from "./ui/ResponsiveNav";
 function AppLayout() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="bg-stone-100  dark:bg-gray-900 dark:text-white ">
+    <div className="bg-stone-100 dark:bg-gray-900 dark:text-white ">
       <div
         className={
           isOpen

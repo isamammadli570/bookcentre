@@ -16,7 +16,7 @@ function Books() {
 
   return (
     <div>
-      <div className="text-center pt-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
+      <div className="text-center pt-6 duration-200   dark:bg-gray-950 dark:text-white">
         <h1 className="text-3xl font-bold py-2">Search a book..</h1>
         <input
           value={search}
@@ -32,7 +32,7 @@ function Books() {
           <Spinner />
         </div>
       ) : (
-        <div className="p-6 duration-200  bg-white dark:bg-gray-950 dark:text-white">
+        <div className="p-6 duration-200 bg-stone-100 dark:bg-gray-950 dark:text-white">
           <div className="flex justify-center flex-wrap">
             {book?.map((book) => {
               return <BooksItem book={book} key={book.id} />;

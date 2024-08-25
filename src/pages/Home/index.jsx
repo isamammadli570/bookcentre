@@ -7,7 +7,7 @@ import AllBooks from "../../ui/AllBooks";
 
 function Home({ handleOrderPopup, orderPopup }) {
   return (
-    <div>
+    <div className="bg-stone-100">
       <Hero handleOrderPopup={handleOrderPopup} />
       <BestBooks handleOrderPopup={handleOrderPopup} />
       <Banner />
