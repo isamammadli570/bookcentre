@@ -8,12 +8,12 @@ import ResponsiveNav from "./ui/ResponsiveNav";
 function AppLayout() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="bg-stone-100 dark:bg-gray-900 dark:text-white ">
+    <div className="bg-white dark:bg-gray-900 dark:text-white ">
       <div
         className={
           isOpen
-            ? "fixed top-0 right-0 w-[300px] h-screen bg-stone-100 dark:bg-gray-900 z-10 duration-300"
-            : "fixed top-0 right-[-100%] w-[300px] h-screen bg-stone-100 dark:bg-gray-900 z-10 duration-300"
+            ? "fixed top-0 right-0 w-[300px] h-screen bg-white dark:bg-gray-900 z-10 duration-300"
+            : "fixed top-0 right-[-100%] w-[300px] h-screen bg-white dark:bg-gray-900 z-10 duration-300"
         }
       >
         {isOpen && <ResponsiveNav setIsOpen={setIsOpen} />}

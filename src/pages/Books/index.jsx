@@ -4,8 +4,6 @@ import { useState } from "react";
 import Spinner from "../../ui/Spinner";
 import BooksItem from "../../features/BooksItem";
 
-
-
 function Books() {
   const [search, setSearch] = useState("nietzsche");
 
@@ -32,7 +30,7 @@ function Books() {
           <Spinner />
         </div>
       ) : (
-        <div className="p-6 duration-200 bg-stone-100 dark:bg-gray-950 dark:text-white">
+        <div className="p-6 duration-200 bg-white dark:bg-gray-950 dark:text-white">
           <div className="flex justify-center flex-wrap">
             {book?.map((book) => {
               return <BooksItem book={book} key={book.id} />;

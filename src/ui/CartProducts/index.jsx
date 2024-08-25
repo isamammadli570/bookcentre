@@ -16,7 +16,7 @@ function CartProducts({ book }) {
         </div>
         <button
           className="border border-red-500 text-red-500 rounded-md p-1
-           hover:bg-red-500 hover:text-white duration-200 mt-2"
+          hover:bg-red-500 hover:text-white duration-200 mt-2"
           onClick={() => dispatch({ type: "Remove", id: book.id })}
         >
           Remove
